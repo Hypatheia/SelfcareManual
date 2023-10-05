@@ -4,7 +4,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('images/waterlilies.png');
+    background-image: url('/images/waterlilies.png');
   }
   /* Styling the buttons */
   button {
