@@ -2,7 +2,7 @@
 
 **A Simple Web Application for Self-Care and Well-Being**
 
-![Project Screenshot](SelfcareManual/images/screenshot.png)
+![Project Screenshot](/images/screenshot.png)
 
 ## Project Overview
 
