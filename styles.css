@@ -48,11 +48,8 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-* {
-    transition: opacity 0.5s, transform 0.5s;
-}
-
-html {
+/* Universal styles and font */
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -61,19 +58,23 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url('/images/background.png');
     background-repeat: repeat;
     background-position: center;
     font-family: 'Comfortaa', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
-    font-size: 20px;
+    font-size: 1rem;
 }
 
-.answer-btn, .nav-btn {
-    flex: 1;
-    margin: 5px;
-    height: 50px;
+#dynamic-image {
+    margin: auto;
+    margin-bottom: 1em;
+}
+
+.answer-btn, .nav-btn, button {
+    margin: 0.3125rem 0;  /* 5px / 16px = 0.3125rem assuming a default font-size of 16px for the root element */
+    height: 3.125rem;  /* 50px / 16px = 3.125rem */
     background: rgba(16, 65, 49, 0.76);
     border-radius: 16px;
     width: 100%;
@@ -82,14 +83,12 @@ body {
 button {
     font-family: 'Comfortaa', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
-    font-size: 20px;
-    padding: 10px 20px;
-    margin: 5px;
+    font-size: 1.25rem;  /* 20px / 16px = 1.25rem */
+    padding: 0.5em 1em;  /* Padding remains in em as it's relative to the button's font-size */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s, box-shadow 0.3s, transform 0.1s;
-    width: 100%;
 }
 
 button:hover {
@@ -105,23 +104,28 @@ button:active {
     transform: scale(0.98);
 }
 
-p {
-    padding: 30px 20px;
-    width: 100%;
-    font-family: 'Comfortaa', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    font-size: 20px;
-    background: rgba(16, 65, 49, 0.76);
-    border-radius: 16px;
-}
-
 #quiz-container {
-    width: 600px;
+    max-width: 37.5rem;  /* 600px / 16px = 37.5rem */
+    width: 90%;
     margin: auto;
-    padding: 20px;
+    padding: 1em;
     display: flex;
     flex-direction: column;
     transition: opacity 0.8s ease-in-out;
+}
+
+p {
+    padding: 1.875em 1.25em;  /* 30px / 16px = 1.875rem, 20px / 16px = 1.25rem */
+    width: 100%;
+    font-family: 'Comfortaa', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 1.25rem;  /* 20px / 16px = 1.25rem */
+    background: rgba(16, 65, 49, 0.76);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(16, 65, 49, 0.3);
 }
 
 .answer-section {
@@ -134,8 +138,35 @@ p {
     text-align: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) {
     #quiz-container {
         width: 90%;
+        padding: 0.5em;  /* Reduced padding for smaller screens */
+    }
+
+    button, .answer-btn, .nav-btn {
+        font-size: 1rem;  /* Reduced font size for smaller screens */
+        padding: 0.25em 0.5em;  /* Adjusted padding for smaller screens */
+        margin: 0.25rem 0;  /* Adjusted margin for smaller screens */
+    }
+
+    p {
+        font-size: 1rem;  /* Reduced font size for smaller screens */
+        padding: 1em;  /* Adjusted padding for smaller screens */
+    }
+}
+
+@media (max-width: 20rem) {  /* 320px / 16px = 20rem */
+    #quiz-container {
+        width: 95%;  /* Increased width percentage for very small screens */
+    }
+
+    button, .answer-btn, .nav-btn {
+        height: auto;  /* Allow buttons to adjust height based on content */
+        margin: 0.2rem 0;  /* Adjusted margin for very small screens */
+    }
+
+    p {
+        padding: 0.5em;  /* Further reduced padding for very small screens */
     }
 }
