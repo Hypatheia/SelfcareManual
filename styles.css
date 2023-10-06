@@ -70,6 +70,7 @@ body {
 
 #dynamic-image {
     margin: 3% auto 0;
+    width: 15%;
 }
 
 .answer-btn, .nav-btn, button {
@@ -157,6 +158,10 @@ p {
         font-size: 1rem;  /* Reduced font size for smaller screens */
         padding: 1em;  /* Adjusted padding for smaller screens */
     }
+
+    #dynamic-image {
+        width: 30%;
+    }
 }
 
 @media (max-width: 20rem) {  /* 320px / 16px = 20rem */
@@ -171,5 +176,9 @@ p {
 
     p {
         padding: 0.5em;  /* Further reduced padding for very small screens */
+    }
+
+    #dynamic-image {
+        width: 30%;
     }
 }
