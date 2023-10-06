@@ -1,26 +1,54 @@
-let quizData = [];  // Global variable to store the quiz data
-let currentQuestionIndex = 0;
+let quizData = [];
+let firstQuestion = null;  // Variable to store the first question
+let remainingQuestions = [];  // Variable to store the remaining questions
 
 // Function to fetch the quiz data from questions.json
 async function fetchQuizData() {
+    showLoadingIndicator();  // Show loading indicator
     try {
         const response = await fetch('questions.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         quizData = await response.json();
-        showQuestion();  // Start the quiz once the data is loaded
+        firstQuestion = quizData[0];  // Separate the first question
+        remainingQuestions = quizData.slice(1);  // Separate the remaining questions
+        shuffle(remainingQuestions);  // Shuffle the remaining questions
+        hideLoadingIndicator();  // Hide loading indicator
+        showQuestion(firstQuestion);  // Start the quiz once the data is loaded
     } catch (error) {
         console.error('Failed to fetch quiz data:', error);
+        showError(error);  // Show error to the user
+        hideLoadingIndicator();  // Hide loading indicator
     }
 }
 
-function showQuestion() {
-    const questionData = quizData[currentQuestionIndex];
-    const quizContainer = document.getElementById('quiz-container');
+function showLoadingIndicator() {
+    const loadingIndicator = document.getElementById('loading-indicator');
+    loadingIndicator.style.display = 'block';
+}
 
-    // Clearing the previous content
-    quizContainer.innerHTML = '';
+function hideLoadingIndicator() {
+    const loadingIndicator = document.getElementById('loading-indicator');
+    loadingIndicator.style.display = 'none';
+}
+
+function showError(error) {
+    const quizContainer = document.getElementById('quiz-container');
+    quizContainer.innerHTML = '';  // Clear the previous content
+    const errorElement = document.createElement('p');
+    errorElement.innerText = `Error: ${error.message}`;
+    quizContainer.appendChild(errorElement);
+}
+
+function showQuestion(questionData) {
+    const quizContainer = document.getElementById('quiz-container');
+    quizContainer.innerHTML = '';  // Clear the previous content
+
+    if (!questionData) {  // No more questions, display the end message
+        displayEndMessage();
+        return;
+    }
 
     // Displaying the question
     const questionElement = document.createElement('p');
@@ -32,44 +60,39 @@ function showQuestion() {
         const answerButton = document.createElement('button');
         answerButton.innerText = option.answer;
         answerButton.classList.add('answer-btn');
-        answerButton.onclick = () => showResponse(index);
+        answerButton.onclick = () => showResponse(questionData, index);
         quizContainer.appendChild(answerButton);
     });
 }
 
-function showResponse(answerIndex) {
-    const questionData = quizData[currentQuestionIndex];
-    const quizContainer = document.getElementById('quiz-container');
+function restartQuiz() {
+    remainingQuestions = quizData.slice(1);  // Reset the remaining questions
+    shuffle(remainingQuestions);  // Shuffle the questions again
+    showQuestion(firstQuestion);  // Start the quiz over with the first question
+}
 
-    // Clearing the previous content
+function showResponse(questionData, answerIndex) {
+    const quizContainer = document.getElementById('quiz-container');
     quizContainer.innerHTML = '';
 
-    // Displaying the response
     const responseElement = document.createElement('p');
     responseElement.innerText = questionData.option[answerIndex].response;
     quizContainer.appendChild(responseElement);
 
-    // Displaying a random suggestion
     const suggestionElement = document.createElement('p');
     const randomSuggestion = questionData.option[answerIndex].suggestions[Math.floor(Math.random() * questionData.option[answerIndex].suggestions.length)];
     suggestionElement.innerText = randomSuggestion;
     quizContainer.appendChild(suggestionElement);
 
-    // Asking the user if they want to continue
     const continueButton = document.createElement('button');
     continueButton.innerText = 'Continue';
     continueButton.classList.add('nav-btn');
     continueButton.onclick = () => {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < quizData.length) {
-            showQuestion();  // Show the next question
-        } else {
-            endQuiz();  // End the quiz if there are no more questions
-        }
+        const nextQuestion = remainingQuestions.pop();
+        showQuestion(nextQuestion);
     };
     quizContainer.appendChild(continueButton);
 
-    // Adding a button to exit the quiz
     const exitButton = document.createElement('button');
     exitButton.innerText = 'Exit';
     exitButton.classList.add('nav-btn');
@@ -77,16 +100,45 @@ function showResponse(answerIndex) {
     quizContainer.appendChild(exitButton);
 }
 
-function endQuiz() {
+function shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
+function displayEndMessage() {
     const quizContainer = document.getElementById('quiz-container');
-    quizContainer.innerHTML = '<button id="start-button" class="nav-btn" onclick="startQuiz()">Start Quiz</button>';
+    quizContainer.innerHTML = '';
+
+    const endMessageElement = document.createElement('p');
+    endMessageElement.innerText = 'Great job taking care of yourself! Wishing you a wonderful day filled with positivity and self-care. Remember, you deserve it!!';
+    quizContainer.appendChild(endMessageElement);
+
+    const restartButton = document.createElement('button');
+    restartButton.innerText = 'Restart Quiz';
+    restartButton.classList.add('nav-btn');
+    restartButton.onclick = restartQuiz;
+    quizContainer.appendChild(restartButton);
+}
+
+function endQuiz() {
+    displayEndMessage();
 }
 
 function startQuiz() {
-    if (quizData.length > 0) {
-        showQuestion();
+    if (firstQuestion) {
+        showQuestion(firstQuestion);
     } else {
-        fetchQuizData();  // Fetch the quiz data if it hasn't been loaded yet
+        fetchQuizData();
     }
 }
 
