@@ -5,7 +5,8 @@
             {
             "answer": "Great, thanks!",
             "response": "That's wonderful! Keep up the positive vibes.",
-            "suggestions": ["I am worthy of love, happiness, and success."]
+            "suggestions": ["I am worthy of love, happiness, and success."],
+            "isHappy": true
             },
             {
             "answer": "Not so good.",
@@ -14,7 +15,8 @@
                 "Take a moment to reflect on what's bothering you and jot down your thoughts.",
                 "Consider doing a quick breathing exercise to calm your mind.",
                 "Find a cozy spot and engage in a relaxing activity like reading a book or listening to soothing music."
-            ]
+            ],
+            "isHappy": false
             },
             {
             "answer": "I don't know...",
@@ -32,7 +34,8 @@
             {
             "answer": "I just had some.",
             "response": "Fantastic! Staying hydrated is key to feeling your best.",
-            "suggestions": ["I believe in myself and my abilities."]
+            "suggestions": ["I believe in myself and my abilities."],
+            "isHappy": true
             },
             {
             "answer": "Thanks for the reminder!",
@@ -41,7 +44,8 @@
                 "Make a cup of tea and take a deep breath.",
                 "Not only your plants love hydrating themselves - drink a glass of water.",
                 "Yes, caffeine makes the anxiety go brrrr, but maybe try having a sip of water instead?"
-            ]
+            ],
+            "isHappy": false
             }
         ]
     },
@@ -51,7 +55,8 @@
             {
                 "answer": "Yes, I had a meal.",
                 "response": "That's great! Nourishing your bpdy is important.",
-                "suggestions": ["I attract positive energy and opportunities into my life."]
+                "suggestions": ["I attract positive energy and opportunities into my life."],
+                "isHappy": true
             },
             {
                 "answer": "No, I forgot.",
@@ -60,7 +65,8 @@
                     "Grab a healthy snack like a piece of fruit or some nuts to tide you over.",
                     "Prepare a quick and easy meal to satisfy your hunger.",
                     "Sometimes a small treat can lift your spirits – maybe indulge in a piece of chocolate."
-                ]
+                ],
+                "isHappy": false
             }
         ]
     },
@@ -70,7 +76,8 @@
             {
                 "answer": "Yes, I took them",
                 "response": "Good job staying on top of your health.",
-                "suggestions": ["I am grateful for each day and the blessings it brings."]
+                "suggestions": ["I am grateful for each day and the blessings it brings."],
+                "isHappy": true
             },
             {
                 "answer": "Oops, I forgot.",
@@ -79,7 +86,8 @@
                     "Set a reminder on your phone or create a pill organizer to help you remember.",
                     "Take your meds with a glass of water to ensure you stay on track.",
                     "Consider talking to your healthcare provider about any concerns you have regarding your medication."
-                ]
+                ],
+                "isHappy": false
             }
         ]
     },
@@ -89,7 +97,8 @@
             {
                 "answer": "No, I'm fine.",
                 "response": "Great! Paying attention to your body is important.",
-                "suggestions": ["I am confident in my unique journey and path in life."]
+                "suggestions": ["I am confident in my unique journey and path in life."],
+                "isHappy": true
             },
             {
                 "answer": "Yes, I've been putting it off.",
@@ -97,7 +106,8 @@
                 "suggestions": [
                     "Don't wait! Head to the bathroom now to relieve yourself and freshen up.",
                     "Take a few extra minutes in the bathroom to pamper yourself with a quick face wash or a stretch."
-                ]
+                ],
+                "isHappy": false
             }
         ]
     },
@@ -107,7 +117,8 @@
             {
                 "answer": "I've been active.",
                 "response": "Keep up the good work! Staying active is great for your well-being.",
-                "suggestions": ["I radiate positivity and kindness to others."]
+                "suggestions": ["I radiate positivity and kindness to others."],
+                "isHappy": true
             },
             {
                 "answer": "I've been sitting for a while.",
@@ -116,7 +127,8 @@
                     "Set a timer to remind yourself to stand up and stretch every 30 minutes.",
                     "Take a 5-minute break to walk around, even if it's just around your home.",
                     "Try some gentle yoga stretches to ease any stiffness from sitting."
-                ]
+                ],
+                "isHappy": false
             }
         ]
     },
@@ -126,7 +138,8 @@
             {
                 "answer": "Yes, I've been sleeping well.",
                 "response": "A good night's sleep is essential. Keep it up!",
-                "suggestions": ["I embrace change and see challenges as opportunities for growth."]
+                "suggestions": ["I embrace change and see challenges as opportunities for growth."],
+                "isHappy": true
             },
             {
                 "answer": "No, I've been having trouble sleeping.",
@@ -135,7 +148,8 @@
                     "If you have time, take a nap! If you don't have time, try to close your eyes for 5 minutes instead.",
                     "If taking a nap is not possible, maybe get some good caffeine like green tea or take a quick walk. Sometimes washing your face with cold water helps too.",
                     "Try some quick 5-10 minute meditation and take deep breaths."
-                ]
+                ],
+                "isHappy": false
             }
         ]
     },
@@ -145,7 +159,8 @@
             {
                 "answer": "I'm feeling calm.",
                 "response": "That's wonderful! Keep practicing self-care.",
-                "suggestions": ["I am in control of my thoughts and choose to focus on the good."]
+                "suggestions": ["I am in control of my thoughts and choose to focus on the good."],
+                "isHappy": true
             },
             {
                 "answer": "Yes, I'm stressed.",
@@ -154,7 +169,8 @@
                     "Practice deep breathing exercises or guided meditation to calm your mind.",
                     "Write down what's causing you stress and explore ways to address those concerns.",
                     "Engage in a relaxing hobby or activity you enjoy to take your mind off stress."
-                ]
+                ],
+                "isHappy": false
             }
         ]
     },
@@ -164,7 +180,8 @@
             {
                 "answer": "Yes, I talked to someone.",
                 "response": "Maintaining social connections is important. Keep it up!",
-                "suggestions": ["I am resilient and can overcome any obstacle that comes my way."]
+                "suggestions": ["I am resilient and can overcome any obstacle that comes my way."],
+                "isHappy": true
             },
             {
                 "answer": "No, I haven't reached out.",
@@ -173,7 +190,8 @@
                     "Send a quick text or make a phone call to a friend or family member.",
                     "Plan a virtual meetup or coffee date to catch up with a loved one.",
                     "Reaching out to someone can brighten your day and theirs."
-                ]
+                ],
+                "isHappy": false
             }
         ]
     },
@@ -183,7 +201,8 @@
             {
                 "answer": "Yes, I got some fresh air.",
                 "response": "Spending time outdoors can boost your mood. Keep it up!",
-                "suggestions": ["I am at peace with my past, present, and excited for my future."]
+                "suggestions": ["I am at peace with my past, present, and excited for my future."],
+                "isHappy": true
             },
             {
                 "answer": "No, I've been indoors all day.",
@@ -192,7 +211,8 @@
                     "Step outside for a few minutes to soak up some sunlight and fresh air.",
                     "Take a leisurely stroll in a nearby park or green space.",
                     "Being in nature can boost your mood and provide a sense of calm."
-                ]
+                ],
+                "isHappy": false
             }
         ]
     }

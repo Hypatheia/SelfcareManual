@@ -69,7 +69,7 @@ body {
 
 #dynamic-image {
     margin: auto;
-    margin-bottom: 1em;
+    margin-bottom: -7em;
 }
 
 .answer-btn, .nav-btn, button {
@@ -115,6 +115,7 @@ button:active {
 }
 
 p {
+    margin-top: 0;
     padding: 1.875em 1.25em;  /* 30px / 16px = 1.875rem, 20px / 16px = 1.25rem */
     width: 100%;
     font-family: 'Comfortaa', Tahoma, Geneva, Verdana, sans-serif;

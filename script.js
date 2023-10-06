@@ -45,6 +45,9 @@ function showQuestion(questionData) {
     const quizContainer = document.getElementById('quiz-container');
     quizContainer.innerHTML = '';  // Clear the previous content
 
+    const imageElement = document.getElementById('dynamic-image');
+    imageElement.src = '/images/frog_normal.png';  // Reset image to default
+
     if (!questionData) {  // No more questions, display the end message
         displayEndMessage();
         return;
@@ -83,6 +86,11 @@ function showResponse(questionData, answerIndex) {
     const randomSuggestion = questionData.option[answerIndex].suggestions[Math.floor(Math.random() * questionData.option[answerIndex].suggestions.length)];
     suggestionElement.innerText = randomSuggestion;
     quizContainer.appendChild(suggestionElement);
+
+    const imageElement = document.getElementById('dynamic-image');
+    if (questionData.option[answerIndex].isHappy) {
+        imageElement.src = '/images/frog_happy.png';
+    }
 
     const continueButton = document.createElement('button');
     continueButton.innerText = 'Continue';
