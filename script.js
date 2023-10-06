@@ -128,7 +128,7 @@ function displayEndMessage() {
     quizContainer.innerHTML = '';
 
     const endMessageElement = document.createElement('p');
-    endMessageElement.innerText = 'Great job taking care of yourself! Wishing you a wonderful day filled with positivity and self-care. Remember, you deserve it!!';
+    endMessageElement.innerText = 'Great job taking care of yourself!\n\nWishing you a wonderful day filled with positivity and self-care.\n\nRemember, you deserve it!';
     quizContainer.appendChild(endMessageElement);
 
     const restartButton = document.createElement('button');
