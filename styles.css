@@ -68,8 +68,7 @@ body {
 }
 
 #dynamic-image {
-    margin: auto;
-    margin-bottom: -7em;
+    margin: auto auto 0;
 }
 
 .answer-btn, .nav-btn, button {
@@ -107,11 +106,12 @@ button:active {
 #quiz-container {
     max-width: 37.5rem;  /* 600px / 16px = 37.5rem */
     width: 90%;
-    margin: auto;
+    margin: 0 auto auto;
     padding: 1em;
     display: flex;
     flex-direction: column;
     transition: opacity 0.8s ease-in-out;
+    align-self: flex-start;
 }
 
 p {
