@@ -76,7 +76,6 @@ body {
 .answer-btn, .nav-btn, button {
     margin: 0.3125rem 0;  /* 5px / 16px = 0.3125rem assuming a default font-size of 16px for the root element */
     height: 3.125rem;  /* 50px / 16px = 3.125rem */
-    background: rgba(16, 65, 49, 0.76);
     border-radius: 16px;
     width: 100%;
 }
@@ -90,15 +89,21 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s, box-shadow 0.3s, transform 0.1s;
-}
-
-button:hover {
-    background: rgba(225, 161, 184, 0.64);
+    background: rgba(225, 161, 184, 0.24);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(225, 161, 184, 0.3);
+}
+
+button:hover {
+    background: rgba(191, 107, 146, 0.788235294117647);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(191, 107, 146, 0.3);
 }
 
 button:active {
@@ -124,17 +129,42 @@ p {
     color: white;
     font-size: 1.25rem;  /* 20px / 16px = 1.25rem */
     line-height: 1.875rem;
-    background: rgba(16, 65, 49, 0.76);
-    border-radius: 16px;
+    background: rgba(63, 91, 115, 0.6);
+    border-radius: .4em;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(16, 65, 49, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(63, 91, 115, 0.3);
 }
 
-.answer-section {
-    display: flex;
-    justify-content: space-between;
+
+.question-section p {
+    background: rgba(191, 107, 146, 0.6313725490196078);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(191, 107, 146, 0.3);
+}
+
+.response-section p {
+    background: rgba(63, 91, 115, 0.6);
+    border-radius: .4em;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(63, 91, 115, 0.3);
+}
+
+.suggestion-section p {
+    margin-top: 1.25em;
+    background: rgba(49, 71, 89, 0.6);
+    border-radius: .4em;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(49, 71, 89, 0.3);
+    text-align: center;
 }
 
 #loading-indicator {

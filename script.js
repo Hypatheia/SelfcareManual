@@ -76,16 +76,24 @@ function restartQuiz() {
 
 function showResponse(questionData, answerIndex) {
     const quizContainer = document.getElementById('quiz-container');
-    quizContainer.innerHTML = '';
+    quizContainer.innerHTML = '';  // Clear the previous content
+
+    const responseSection = document.createElement('div');
+    responseSection.classList.add('response-section');
+    quizContainer.appendChild(responseSection);
 
     const responseElement = document.createElement('p');
     responseElement.innerText = questionData.option[answerIndex].response;
-    quizContainer.appendChild(responseElement);
+    responseSection.appendChild(responseElement);
+
+    const suggestionSection = document.createElement('div');
+    suggestionSection.classList.add('suggestion-section');
+    quizContainer.appendChild(suggestionSection);
 
     const suggestionElement = document.createElement('p');
     const randomSuggestion = questionData.option[answerIndex].suggestions[Math.floor(Math.random() * questionData.option[answerIndex].suggestions.length)];
     suggestionElement.innerText = randomSuggestion;
-    quizContainer.appendChild(suggestionElement);
+    suggestionSection.appendChild(suggestionElement);
 
     const imageElement = document.getElementById('dynamic-image');
     if (questionData.option[answerIndex].isHappy) {
@@ -99,13 +107,13 @@ function showResponse(questionData, answerIndex) {
         const nextQuestion = remainingQuestions.pop();
         showQuestion(nextQuestion);
     };
-    quizContainer.appendChild(continueButton);
+    responseSection.appendChild(continueButton);
 
     const exitButton = document.createElement('button');
     exitButton.innerText = 'Exit';
     exitButton.classList.add('nav-btn');
     exitButton.onclick = endQuiz;
-    quizContainer.appendChild(exitButton);
+    responseSection.appendChild(exitButton);
 }
 
 function shuffle(array) {
