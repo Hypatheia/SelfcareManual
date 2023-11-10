@@ -1,10 +1,10 @@
-let quizData = [];
+let quizData = [];  // Array to store the quiz data
 let firstQuestion = null;  // Variable to store the first question
 let remainingQuestions = [];  // Variable to store the remaining questions
 
 // Function to fetch the quiz data from questions.json
 async function fetchQuizData() {
-    showLoadingIndicator();  // Show loading indicator
+    showLoadingIndicator();
     try {
         const response = await fetch('questions.json');
         if (!response.ok) {
@@ -14,12 +14,12 @@ async function fetchQuizData() {
         firstQuestion = quizData[0];  // Separate the first question
         remainingQuestions = quizData.slice(1);  // Separate the remaining questions
         shuffle(remainingQuestions);  // Shuffle the remaining questions
-        hideLoadingIndicator();  // Hide loading indicator
+        hideLoadingIndicator();
         showQuestion(firstQuestion);  // Start the quiz once the data is loaded
     } catch (error) {
         console.error('Failed to fetch quiz data:', error);
-        showError(error);  // Show error to the user
-        hideLoadingIndicator();  // Hide loading indicator
+        showError(error);
+        hideLoadingIndicator();
     }
 }
 
@@ -157,8 +157,3 @@ function startQuiz() {
         fetchQuizData();
     }
 }
-
-// If you want to automatically start the quiz when the page loads,
-// uncomment the line below. Otherwise, the quiz will start when
-// the user clicks the "Start Quiz" button.
-// fetchQuizData();
